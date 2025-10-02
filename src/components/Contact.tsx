@@ -62,7 +62,7 @@ const Contact = () => {
           </Card>
 
           <div className="pt-8 text-sm text-muted-foreground">
-            <p>Laboratory Head: <span className="font-medium text-foreground">doc. Ing. Štěpán Starosta, Ph.D.</span></p>
+            <p>Laboratory Head: <span className="font-medium text-foreground">Rodrigo Alves, Ph.D.</span></p>
           </div>
         </div>
       </div>

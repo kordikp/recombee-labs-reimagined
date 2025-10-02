@@ -6,12 +6,12 @@ import labInterior from "@/assets/lab-interior.jpg";
 const Team = () => {
   const teamMembers = [
     {
-      name: "Pavel Kordik, Ph.D.",
-      role: "CEO, Co-Founder",
+      name: "Rodrigo Alves, Ph.D.",
+      role: "Head of Laboratory",
     },
     {
-      name: "Rodrigo Alves, Ph.D.",
-      role: "Head of Research",
+      name: "Pavel Kordik, Ph.D.",
+      role: "CEO, Co-Founder",
     },
     {
       name: "Vojtech Vancura, Ph.D.",
