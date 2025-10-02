@@ -51,7 +51,7 @@ const Publications = () => {
   ];
 
   return (
-    <section className="py-24 bg-background">
+    <section id="publications" className="py-24 bg-background">
       <div className="container px-6">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-4">

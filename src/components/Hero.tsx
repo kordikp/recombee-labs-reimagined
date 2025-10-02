@@ -4,46 +4,52 @@ import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-hero">
-      <div 
-        className="absolute inset-0 z-0 opacity-30"
-        style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background z-0" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={heroBg} 
+          alt="AI Research Laboratory" 
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-hero" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,hsl(var(--primary)/0.1),transparent)]" />
+      </div>
       
-      <div className="container relative z-10 px-6 py-20 animate-fade-in">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
+      <div className="container relative z-10 px-6 py-32">
+        <div className="max-w-4xl mx-auto text-center animate-fade-in">
+          <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full backdrop-blur-sm">
+            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Advancing AI Through Research</span>
+            <span className="text-sm font-medium text-foreground">Research Laboratory</span>
           </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-            <span className="bg-gradient-primary bg-clip-text text-transparent">RecombeeLab</span>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <span className="bg-gradient-primary bg-clip-text text-transparent">
+              RecombeeLab
+            </span>
           </h1>
-          
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            A joint research laboratory pushing the boundaries of recommendation systems and machine learning at CTU Prague
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+            Joint Research Laboratory with CTU Prague
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
+            Advancing the frontiers of AI and recommendation systems through 
+            cutting-edge research and real-world applications
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
             <Button 
-              size="lg" 
-              className="bg-gradient-primary hover:opacity-90 transition-all shadow-elegant group"
+              size="lg"
+              className="bg-gradient-primary hover:opacity-90 text-primary-foreground shadow-elegant hover:-translate-y-1 hover:scale-105 transition-all duration-300 group"
+              onClick={() => document.getElementById('publications')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Explore Research
+              View Publications
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
-              size="lg" 
+              size="lg"
               variant="outline"
-              className="border-primary/20 hover:bg-primary/5"
+              className="border-border/50 bg-card/90 backdrop-blur hover:shadow-elegant hover:-translate-y-1 transition-all duration-300"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              View Publications
+              Get in Touch
             </Button>
           </div>
         </div>

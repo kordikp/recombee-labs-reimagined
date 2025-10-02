@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 
 const Contact = () => {
   return (
-    <section className="py-24 bg-gradient-hero">
+    <section id="contact" className="py-24 bg-gradient-hero">
       <div className="container px-6">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-4">
