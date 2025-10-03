@@ -5,6 +5,7 @@ import { translations } from "@/i18n/translations";
 import facultyBuilding from "@/assets/faculty-building.jpg";
 import labInterior from "@/assets/lab-interior.jpg";
 import rodrigoImg from "@/assets/rodrigo.png";
+import vojtaImg from "@/assets/vojta.png";
 
 const Team = () => {
   const { language } = useLanguage();
@@ -23,6 +24,7 @@ const Team = () => {
     {
       name: "Vojtech Vancura, Ph.D.",
       role: "Machine Learning Researcher",
+      image: vojtaImg,
     },
     {
       name: "Petr Kasalicky",
