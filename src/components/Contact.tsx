@@ -1,32 +1,36 @@
 import { Button } from "@/components/ui/button";
 import { Mail, ExternalLink, Users } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/i18n/translations";
 
 const Contact = () => {
+  const { language } = useLanguage();
+  const t = translations[language].contact;
+
   return (
     <section id="contact" className="py-24 bg-gradient-hero">
       <div className="container px-6">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-4">
             <Users className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium text-accent">Join Us</span>
+            <span className="text-sm font-medium text-accent">{t.badge}</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold">
-            Let's <span className="bg-gradient-primary bg-clip-text text-transparent">Collaborate</span>
+            {t.title} <span className="bg-gradient-primary bg-clip-text text-transparent">{t.titleHighlight}</span>
           </h2>
           
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Interested in pushing the boundaries of recommender systems? Looking to pursue an industrial master's or PhD thesis? 
-            We'd love to hear from you.
+            {t.subtitle}
           </p>
 
           <Card className="p-8 bg-gradient-card border-primary/20 shadow-elegant max-w-2xl mx-auto">
             <div className="space-y-6">
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold">Get in Touch</h3>
+                <h3 className="text-xl font-semibold">{t.cardTitle}</h3>
                 <p className="text-muted-foreground">
-                  Whether you're a researcher, student, or industry partner, we're open to collaboration opportunities.
+                  {t.cardDescription}
                 </p>
               </div>
               
@@ -38,7 +42,7 @@ const Contact = () => {
                 >
                   <a href="mailto:research@recombee.com">
                     <Mail className="mr-2 w-5 h-5" />
-                    research@recombee.com
+                    {t.emailButton}
                   </a>
                 </Button>
                 
@@ -53,7 +57,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Research Opportunities
+                    {t.opportunitiesButton}
                     <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </Button>
@@ -62,7 +66,7 @@ const Contact = () => {
           </Card>
 
           <div className="pt-8 text-sm text-muted-foreground">
-            <p>Laboratory Head: <span className="font-medium text-foreground">Rodrigo Alves, Ph.D.</span></p>
+            <p>{t.labHead}: <span className="font-medium text-foreground">Rodrigo Alves, Ph.D.</span></p>
           </div>
         </div>
       </div>

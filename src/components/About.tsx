@@ -1,22 +1,27 @@
 import { Target, Users, Lightbulb } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/i18n/translations";
 
 const About = () => {
+  const { language } = useLanguage();
+  const t = translations[language].about;
+
   const features = [
     {
       icon: Target,
-      title: "Real-World Impact",
-      description: "Access to production datasets from hundreds of integrations serving millions of users worldwide, enabling A/B testing in real environments.",
+      title: t.realWorld.title,
+      description: t.realWorld.description,
     },
     {
       icon: Users,
-      title: "Industry Partnership",
-      description: "Joint research laboratory with Recombee and Faculty of Information Technology at Czech Technical University in Prague.",
+      title: t.industry.title,
+      description: t.industry.description,
     },
     {
       icon: Lightbulb,
-      title: "Research Excellence",
-      description: "Focus on ethical personalization and recommendation algorithms that bring genuine value to users, not just advertising.",
+      title: t.excellence.title,
+      description: t.excellence.description,
     },
   ];
 
@@ -24,13 +29,14 @@ const About = () => {
     <section className="py-24 bg-gradient-card">
       <div className="container px-6">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-4">
+            <span className="text-sm font-medium text-accent">{t.badge}</span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Research That <span className="bg-gradient-primary bg-clip-text text-transparent">Matters</span>
+            {t.title} <span className="bg-gradient-primary bg-clip-text text-transparent">{t.titleHighlight}</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            At RecombeeLab, we bridge the gap between academic research and real-world applications. 
-            Our unique advantage lies in combining cutting-edge algorithms with practical insights from 
-            production systems used by companies in 27+ countries.
+            {t.subtitle}
           </p>
         </div>
 

@@ -1,8 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, BookOpen } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/i18n/translations";
 
 const Publications = () => {
+  const { language } = useLanguage();
+  const t = translations[language].publications;
+
   const publications = [
     {
       title: "The Future is Sparse: Embedding Compression for Scalable Retrieval in Recommender Systems",
@@ -56,13 +61,13 @@ const Publications = () => {
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-4">
             <BookOpen className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium text-accent">Latest Research</span>
+            <span className="text-sm font-medium text-accent">{t.badge}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Recent <span className="bg-gradient-primary bg-clip-text text-transparent">Publications</span>
+            {t.title} <span className="bg-gradient-primary bg-clip-text text-transparent">{t.titleHighlight}</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Our cutting-edge research published at top-tier conferences in AI and recommender systems.
+            {t.subtitle}
           </p>
         </div>
 
@@ -84,6 +89,7 @@ const Publications = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary transition-colors"
+                      aria-label={t.viewPaper}
                     >
                       <ExternalLink className="w-5 h-5" />
                     </a>

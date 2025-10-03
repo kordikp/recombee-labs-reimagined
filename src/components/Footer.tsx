@@ -1,31 +1,35 @@
 import { Github, ExternalLink } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/i18n/translations";
 
 const Footer = () => {
+  const { language } = useLanguage();
+  const t = translations[language].footer;
+
   return (
     <footer className="py-12 border-t border-border/50 bg-background">
       <div className="container px-6">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <h3 className="font-bold text-xl mb-4 bg-gradient-primary bg-clip-text text-transparent">
-              RecombeeLab
+              {t.about.title}
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Joint research laboratory advancing AI and recommendation systems through collaboration between 
-              Recombee and CTU Prague.
+              {t.about.description}
             </p>
           </div>
           
           <div>
-            <h4 className="font-semibold mb-4">Research</h4>
+            <h4 className="font-semibold mb-4">{t.research.title}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <a href="#publications" className="hover:text-primary transition-colors">
-                  Publications
+                  {t.research.publications}
                 </a>
               </li>
               <li>
                 <a href="#opensource" className="hover:text-primary transition-colors">
-                  Open Source
+                  {t.research.openSource}
                 </a>
               </li>
               <li>
@@ -35,7 +39,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors inline-flex items-center gap-1"
                 >
-                  All Publications
+                  {t.research.allPublications}
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
@@ -43,7 +47,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-semibold mb-4">Connect</h4>
+            <h4 className="font-semibold mb-4">{t.links.title}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <a 
@@ -52,7 +56,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors inline-flex items-center gap-1"
                 >
-                  Recombee Research
+                  {t.research.recombeeResearch}
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
@@ -63,7 +67,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors inline-flex items-center gap-1"
                 >
-                  CTU FIT
+                  {t.research.ctuFit}
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
@@ -75,7 +79,7 @@ const Footer = () => {
                   className="hover:text-primary transition-colors inline-flex items-center gap-1"
                 >
                   <Github className="w-3 h-3" />
-                  GitHub
+                  {t.links.github}
                 </a>
               </li>
             </ul>
@@ -83,7 +87,7 @@ const Footer = () => {
         </div>
         
         <div className="pt-8 border-t border-border/50 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} RecombeeLab. Advancing AI through research and collaboration.</p>
+          <p>© {new Date().getFullYear()} {t.copyright}</p>
         </div>
       </div>
     </footer>

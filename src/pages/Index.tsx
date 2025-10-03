@@ -6,10 +6,12 @@ import Team from "@/components/Team";
 import Partnership from "@/components/Partnership";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import LanguageSwitch from "@/components/LanguageSwitch";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <LanguageSwitch />
       <Hero />
       <About />
       <Publications />

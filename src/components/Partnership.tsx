@@ -1,27 +1,32 @@
 import { Card } from "@/components/ui/card";
 import { Building2, Cpu, GraduationCap, Zap } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/i18n/translations";
 
 const Partnership = () => {
+  const { language } = useLanguage();
+  const t = translations[language].partnership;
+
   const benefits = [
     {
       icon: Building2,
-      title: "World-Class Facilities",
-      description: "Access to high-performance computing infrastructure with GPU servers and enterprise-grade hardware.",
+      title: t.facilities.title,
+      description: t.facilities.description,
     },
     {
       icon: Cpu,
-      title: "Production Data",
-      description: "Real-world datasets from hundreds of production integrations across 27+ countries worldwide.",
+      title: t.location.title,
+      description: `${t.location.building} - ${t.location.room}`,
     },
     {
       icon: GraduationCap,
-      title: "PhD Support",
-      description: "Financial support and mentorship for PhD students working on cutting-edge research projects.",
+      title: t.supervision.title,
+      description: t.supervision.description,
     },
     {
       icon: Zap,
-      title: "A/B Testing",
-      description: "Unique ability to test research prototypes in real production environments with live users.",
+      title: t.collaboration.title,
+      description: t.collaboration.description,
     },
   ];
 
@@ -29,12 +34,14 @@ const Partnership = () => {
     <section className="py-24 bg-gradient-card">
       <div className="container px-6">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-4">
+            <span className="text-sm font-medium text-accent">{t.badge}</span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Partnership with <span className="bg-gradient-primary bg-clip-text text-transparent">CTU Prague</span>
+            {t.title} <span className="bg-gradient-primary bg-clip-text text-transparent">{t.titleHighlight}</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            RecombeeLab is a joint research laboratory with the Faculty of Information Technology at Czech Technical University in Prague. 
-            This unique partnership combines academic excellence with industry expertise.
+            {t.subtitle}
           </p>
         </div>
 
@@ -56,16 +63,14 @@ const Partnership = () => {
 
         <Card className="max-w-4xl mx-auto p-8 bg-gradient-card border-primary/20 shadow-elegant animate-fade-in-up">
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold">Location</h3>
+            <h3 className="text-2xl font-bold">{t.location.title}</h3>
             <div className="space-y-2 text-muted-foreground">
               <p className="font-semibold text-foreground">RecombeeLab Research Laboratory</p>
-              <p>Department of Applied Mathematics</p>
-              <p>Faculty of Information Technology</p>
-              <p>Czech Technical University in Prague</p>
+              <p>{t.location.building}</p>
+              <p>{t.location.address}</p>
               <p className="pt-2">
-                <span className="font-medium">Room:</span> TH:A-1354 (Building A, 13th floor)
+                <span className="font-medium">{t.location.room}</span>
               </p>
-              <p>Thákurova 7, Praha 6 – Dejvice, 160 00</p>
             </div>
           </div>
         </Card>

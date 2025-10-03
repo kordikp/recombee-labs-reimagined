@@ -1,8 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/i18n/translations";
 
 const OpenSource = () => {
+  const { language } = useLanguage();
+  const t = translations[language].openSource;
+
   const projects = [
     {
       name: "ELSA",
@@ -28,13 +33,13 @@ const OpenSource = () => {
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-4">
             <Github className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium text-accent">Open Innovation</span>
+            <span className="text-sm font-medium text-accent">{t.badge}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Open Source <span className="bg-gradient-primary bg-clip-text text-transparent">Projects</span>
+            {t.title} <span className="bg-gradient-primary bg-clip-text text-transparent">{t.titleHighlight}</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            We believe in democratizing AI technologies. Our open-source tools are used by researchers and developers worldwide.
+            {t.subtitle}
           </p>
         </div>
 
@@ -64,7 +69,7 @@ const OpenSource = () => {
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <span className="flex items-center gap-2">
                         <Github className="w-4 h-4" />
-                        GitHub
+                        {t.github}
                       </span>
                       <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
@@ -77,7 +82,7 @@ const OpenSource = () => {
                       asChild
                     >
                       <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        <span>Live Demo</span>
+                        <span>{t.liveDemo}</span>
                         <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </a>
                     </Button>
